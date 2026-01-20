@@ -23,3 +23,12 @@ plugins:
 
 nav:
   - Home: index.md
+  - License: license.md
+  - Notice: notice.md
+
+extra:
+  social:
+    - name: License
+      link: /license/
+    - name: Notice
+      link: /notice/

@@ -1,0 +1,27 @@
+# PyCharm / IntelliJ
+.idea/
+
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Windows / OS noise
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# MkDocs / build outputs (if you generate them here)
+site/
+
+# If pytest has been used ignore its cache
+.pytest_cache/
+
+# If Ruff has been used ignore its cache
+.ruff_cache/
+
+# If mypy has been used ignore its cache
+.mypy_cache/

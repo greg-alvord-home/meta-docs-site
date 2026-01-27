@@ -1,0 +1,88 @@
+@prefix rdf:   <https://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <https://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:   <https://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <https://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:  <https://xmlns.com/foaf/0.1/> .
+@prefix ex:    <https://example.org/ontology/> .
+
+############################
+# Ontology header
+############################
+
+ex:PeopleOntology
+    a owl:Ontology ;
+    rdfs:label "People Test Ontology" ;
+    rdfs:comment "A compact ontology for testing RDF/SPARQL tooling." .
+
+############################
+# Classes
+############################
+
+ex:Person
+    a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A human individual." .
+
+ex:Employee
+    a owl:Class ;
+    rdfs:subClassOf ex:Person ;
+    rdfs:label "Employee" .
+
+ex:Organization
+    a owl:Class ;
+    rdfs:label "Organization" .
+
+############################
+# Object properties
+############################
+
+ex:worksFor
+    a owl:ObjectProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Organization ;
+    rdfs:label "works for" .
+
+ex:knows
+    a owl:ObjectProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Person ;
+    rdfs:label "knows" ;
+    owl:SymmetricProperty true .
+
+############################
+# Datatype properties
+############################
+
+ex:employeeId
+    a owl:DatatypeProperty ;
+    rdfs:domain ex:Employee ;
+    rdfs:range xsd:string ;
+    rdfs:label "employee ID" .
+
+ex:age
+    a owl:DatatypeProperty ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:integer ;
+    rdfs:label "age" .
+
+############################
+# Individuals
+############################
+
+ex:AcmeCorp
+    a ex:Organization ;
+    rdfs:label "Acme Corporation" .
+
+ex:Alice
+    a ex:Employee ;
+    foaf:name "Alice Smith" ;
+    ex:age 34 ;
+    ex:employeeId "E-1001" ;
+    ex:worksFor ex:AcmeCorp ;
+    ex:knows ex:Bob .
+
+ex:Bob
+    a ex:Person ;
+    foaf:name "Bob Jones" ;
+    ex:age 29 ;
+    ex:knows ex:Alice .

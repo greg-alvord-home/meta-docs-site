@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://example.org/people-schema"
+    xmlns="https://example.org/people-schema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <!-- =========================
+       Root document
+       ========================= -->
+  <xs:element name="PeopleDataset" type="PeopleDatasetType">
+
+    <!-- Ensure Organizations have unique @orgId -->
+    <xs:key name="OrganizationKey">
+      <xs:selector xpath="Organizations/Organization"/>
+      <xs:field xpath="@orgId"/>
+    </xs:key>
+
+    <!-- Ensure all people entries (Person and Employee) have unique @personId -->
+    <!-- Using wildcard selector avoids XPath union (|), which many XSD validators reject here. -->
+    <xs:key name="PeopleKey">
+      <xs:selector xpath="People/*"/>
+      <xs:field xpath="@personId"/>
+    </xs:key>
+
+    <!-- worksFor/@orgRef must refer to an existing Organization/@orgId -->
+    <xs:keyref name="WorksForOrgRef" refer="OrganizationKey">
+      <xs:selector xpath="People/*/worksFor"/>
+      <xs:field xpath="@orgRef"/>
+    </xs:keyref>
+
+    <!-- knows/@personRef must refer to an existing Person/Employee @personId -->
+    <xs:keyref name="KnowsPersonRef" refer="PeopleKey">
+      <xs:selector xpath="People/*/knows"/>
+      <xs:field xpath="@personRef"/>
+    </xs:keyref>
+
+  </xs:element>
+
+  <xs:complexType name="PeopleDatasetType">
+    <xs:sequence>
+      <xs:element name="Organizations" type="OrganizationsType" minOccurs="0"/>
+      <xs:element name="People" type="PeopleType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- =========================
+       Organizations
+       ========================= -->
+  <xs:complexType name="OrganizationsType">
+    <xs:sequence>
+      <xs:element name="Organization" type="OrganizationType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OrganizationType">
+    <xs:sequence>
+      <xs:element name="label" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="orgId" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+  <!-- =========================
+       People
+       ========================= -->
+  <xs:complexType name="PeopleType">
+    <xs:sequence>
+      <xs:element name="Person" type="PersonType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Employee" type="EmployeeType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Base type mirroring ex:Person -->
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <!-- Equivalent to foaf:name -->
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+
+      <!-- Equivalent to ex:age -->
+      <xs:element name="age" type="xs:integer" minOccurs="0"/>
+
+      <!-- Equivalent to ex:knows (0..n references to other people by ID) -->
+      <xs:element name="knows" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="personRef" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+      </xs:element>
+
+      <!-- Equivalent to ex:worksFor (reference to an org by ID) -->
+      <xs:element name="worksFor" minOccurs="0">
+        <xs:complexType>
+          <xs:attribute name="orgRef" type="xs:IDREF" use="required"/>
+        </xs:complexType>
+      </xs:element>
+
+    </xs:sequence>
+
+    <!-- Identity for this Person -->
+    <xs:attribute name="personId" type="xs:ID" use="required"/>
+  </xs:complexType>
+
+  <!-- Derived type mirroring ex:Employee (subClassOf Person) -->
+  <xs:complexType name="EmployeeType">
+    <xs:complexContent>
+      <xs:extension base="PersonType">
+        <xs:sequence>
+          <!-- Equivalent to ex:employeeId -->
+          <xs:element name="employeeId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>

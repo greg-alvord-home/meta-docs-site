@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://example.org/people-schema"
+    xmlns="https://example.org/people-schema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <!-- =========================
+       Root document
+       ========================= -->
+  <xs:element name="PeopleDataset" type="PeopleDatasetType"/>
+  <xs:complexType name="PeopleDatasetType">
+    <xs:sequence>
+      <xs:element name="Organizations" type="OrganizationsType" minOccurs="0"/>
+      <xs:element name="People" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!-- =========================
+       Organizations
+       ========================= -->
+  <xs:complexType name="OrganizationsType">
+    <xs:sequence>
+      <xs:element name="Organization" type="OrganizationType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="OrganizationType">
+    <xs:sequence>
+      <xs:element name="label" type="xs:string" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="employeesCount" type="xs:integer" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attribute name="orgId" type="xs:ID" use="required"/>
+  </xs:complexType>
+</xs:schema>

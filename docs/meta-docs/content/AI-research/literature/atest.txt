@@ -1,2 +1,0 @@
-Hello
-https://github.com/greg-alvord-home/meta-docs.git

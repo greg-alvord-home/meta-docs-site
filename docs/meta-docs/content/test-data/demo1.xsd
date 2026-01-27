@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="https://example.org/people-schema"
+    xmlns="https://example.org/people-schema"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <!-- =========================
+       Root document
+       ========================= -->
+  <xs:element name="PeopleDataset" type="PeopleDatasetType"/>
+  <xs:complexType name="PeopleDatasetType">
+    <xs:sequence>
+      <xs:element name="Organizations" minOccurs="0"/>
+      <xs:element name="People" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

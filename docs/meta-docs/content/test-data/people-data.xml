@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ps:PeopleDataset  xmlns:ps = "https://example.org/people-schema"  
+xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"  
+xsi:schemaLocation = "https://example.org/people-schema people-schema.xsd">
+	<ps:Organizations>
+		<ps:Organization  orgId = "AcmeCorp">
+			<ps:label>Acme Corporation</ps:label>
+		</ps:Organization>
+	</ps:Organizations>
+	<ps:People>
+		<ps:Employee  personId = "Alice">
+			<ps:name>Alice Smith</ps:name>
+			<ps:age>34</ps:age>
+			<ps:employeeId>E-1001</ps:employeeId>
+			<ps:worksFor  orgRef = "AcmeCorp"/>
+			<ps:knows  personRef = "Bob"/>
+		</ps:Employee>
+		<ps:Person  personId = "Bob">
+			<ps:name>Bob Jones</ps:name>
+			<ps:age>29</ps:age>
+			<ps:knows  personRef = "Alice"/>
+		</ps:Person>
+	</ps:People>
+</ps:PeopleDataset>

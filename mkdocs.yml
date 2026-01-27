@@ -1,5 +1,5 @@
-site_name: Meta-Docs
-site_description: Curated public notes and documentation from the Meta-Docs collection.
+site_name: Dynamic Ontology Meta-Docs
+site_description: Curated public notes and documentation from the Meta-Docs collection at Dynamic Ontology.
 site_url: https://dynamicontology.com/
 
 docs_dir: docs
@@ -20,15 +20,3 @@ markdown_extensions:
 
 plugins:
   - search
-
-nav:
-  - Home: index.md
-  - License: license.md
-  - Notice: notice.md
-
-extra:
-  social:
-    - name: License
-      link: /license/
-    - name: Notice
-      link: /notice/

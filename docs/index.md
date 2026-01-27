@@ -1,23 +1,7 @@
 # Table of contents
 ## AI-evaluations
 ![end-of-a-good-days-work.png](./meta-docs/content/AI-evaluations/ChatGPT/end-of-a-good-days-work.png)
-### ChatGPT
-* [AI Admits Mistake](./meta-docs/content/AI-evaluations/ChatGPT/Admits-mistake.md/)
-* [AI Admits Mistake - follow up](./meta-docs/content/AI-evaluations/ChatGPT/Admits-mistake-2.md/)
-* [AI as a coding partner](./meta-docs/content/AI-evaluations/ChatGPT/ai-as-coding-partner.md/)
-* [ChatGPT Admits to silent assumption shifts](./meta-docs/content/AI-evaluations/ChatGPT/ChatGPT-admits-to-silent-assumption-shifts.md/)
-* [Guardrails A](./meta-docs/content/AI-evaluations/ChatGPT/guardrails-1.md)
-* [Insight Turns into Code](./meta-docs/content/AI-evaluations/ChatGPT/insight-turns-in-code.md)
-* [Language Ethics and AI](./meta-docs/content/AI-evaluations/ChatGPT/language-ethics-and-AI.md)
-* [No Indication Silent Assumption Shift 1](./meta-docs/content/AI-evaluations/ChatGPT/no-indication-silent-assumption-shift-1.md)
-* [No Indication Silent Assumption Shift 2](./meta-docs/content/AI-evaluations/ChatGPT/no-indication-silent-assumption-shift-2.md)
-* [No Indication Silent Assumption Shift 3](./meta-docs/content/AI-evaluations/ChatGPT/no-indication-silent-assumption-shift-3.md)
-* [No Indication Silent Assumption Shift 4](./meta-docs/content/AI-evaluations/ChatGPT/no-indication-silent-assumption-shift-4.md)
-* [No Indication Silent Assumption Shift 5](./meta-docs/content/AI-evaluations/ChatGPT/no-indication-silent-assumption-shift-5.md)
-* [One Example Where the AI Approach Breaks](./meta-docs/content/AI-evaluations/ChatGPT/one-example-where-the-ai-approach-breaks.md)
-* [Other Software Advice](./meta-docs/content/AI-evaluations/ChatGPT/other-software-advice.md)
-* [Sometimes AI can follow instructions](./meta-docs/content/AI-evaluations/ChatGPT/sometimes-ai-can-follow-instructions.md)
-* [Use of guardrails](./meta-docs/content/AI-evaluations/ChatGPT/Use-of-guardrails.md)
+
 ___
 ## AI Research
 ### Literature

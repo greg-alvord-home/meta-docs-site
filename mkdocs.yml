@@ -1,6 +1,6 @@
-site_name: Meta-Docs Workspace
+site_name: Meta-Docs Public site
 site_description: Curated public notes and documentation from the Meta-Docs collection at Dynamic Ontology.
-site_url: https://greg-alvord-home.github.io/meta-docs-site/
+site_url: https://dynamicontology.com/
 
 docs_dir: docs
 site_dir: site

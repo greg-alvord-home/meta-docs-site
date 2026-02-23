@@ -24,4 +24,4 @@ site/
 .ruff_cache/
 
 # If mypy has been used ignore its cache
-.mypy_cache/
+.mypy_cache/ontology_toolkit/

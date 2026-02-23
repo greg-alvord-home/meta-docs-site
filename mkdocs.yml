@@ -18,5 +18,14 @@ markdown_extensions:
   - toc:
       permalink: true
 
+nav:
+  - Home: index.md
+  - Posts:
+      - Posts Index: posts/index.md
+      - 2026:
+          - MISMO namespace decision (hindsight analysis): posts/2026/mismo_namespace_decision_hindsight_analysis.md
+          - MISMO namespace decision (LinkedIn): posts/2026/mismo_namespace_decision_LinkedIN.md
+          - YAML-LD call to action for MISMO: posts/2026/yaml_ld_call_to_action_for_mismo.md
+
 plugins:
   - search
